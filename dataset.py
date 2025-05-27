@@ -43,9 +43,9 @@ class DatasetType:
 Dataset().hackle.device_properties()
               혹은
 ds = Dataset()
-ds.vote.accounts_user()
+ds.votes.accounts_user()
 
-ds.vote.file_list()  와 같은 방법으로 호출에 필요한 파일 이름을 확인할 수 있습니다.            
+ds.votes.file_list()  와 같은 방법으로 호출에 필요한 파일 이름을 확인할 수 있습니다.            
 """)
     ## hackle 데이터셋 읽어오기
     def device_properties(self):
