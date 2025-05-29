@@ -3,3 +3,7 @@
 
 # config 파일 ignore
 config/
+
+# 데이터 폴더
+hackle/
+votes/
