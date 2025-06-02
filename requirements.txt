@@ -1,0 +1,39 @@
+# 3.10 python requirements.txt
+
+# Data Science and Machine Learning
+pandas>=1.3.0,<2.0.0
+numpy>=1.21.0
+scikit-learn>=1.0.0,<1.4
+scipy>=1.7.0
+matplotlib>=3.4.0
+seaborn>=0.11.0
+
+# Text Preprocessing
+konlpy>=0.6.0
+transformers>=4.30.0,<5.0
+sentence-transformers>=2.2.0
+sentencepiece==0.1.96  # 반드시 wheel로 설치 필요 (PyPI 불안정 시 직접 설치)
+
+# Dimensionality Reduction
+umap-learn>=0.5.1
+scikit-learn>=1.0.0  # 중복 명시됨 (위에서 이미 포함)
+
+# Clustering
+hdbscan>=0.8.29
+kneed>=0.7.0
+
+# Deep Learning
+torch>=1.10.0,<2.2.0
+
+# Spark
+pyspark>=3.2.0
+
+# Google Cloud
+pandas-gbq>=0.17.0
+python-dotenv>=0.19.0
+google-auth>=2.3.0
+google-auth-oauthlib>=0.5.0
+google-cloud-bigquery>=3.5.0
+
+# Jupyter & Misc
+jupyterlab>=3.0.0
