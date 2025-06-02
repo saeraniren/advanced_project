@@ -54,11 +54,11 @@ ds.votes.file_list()  와 같은 방법으로 호출에 필요한 파일 이름�
     def hackle_events(self):
         return self._read_parquet("hackle_events")
     
-    def hackle_projects(self):
-        return self._read_parquet("hackle_projects")
+    def hackle_properties(self):
+        return self._read_parquet("hackle_properties")
     
-    def users_properties(self):
-        return self._read_parquet("users_properties")
+    def user_properties(self):
+        return self._read_parquet("user_properties")
     
     ## vote 데이터셋 읽어오기
     def accounts_attendance(self):
@@ -96,6 +96,9 @@ ds.votes.file_list()  와 같은 방법으로 호출에 필요한 파일 이름�
     
     def accounts_user_contacts(self):
         return self._read_parquet("accounts_user_contacts")
+    
+    def accounts_userquestionrecord(self):
+        return self._read_parquet("accounts_userquestionrecord")
     
     def accounts_userwithdraw(self):
         return self._read_parquet("accounts_userwithdraw")
