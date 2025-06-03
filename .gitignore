@@ -177,4 +177,5 @@ cython_debug/
 #personal files
 requirements.txt
 sprintda05-soomin.json
-05-06-timedata.parquet
+timedata/
+test.ipynb
