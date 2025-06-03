@@ -1,8 +1,10 @@
 import pandas as pd
 import gcsfs
+import pyarrow.parquet as pq
 
 JSON_KEY_PATH = "./sprintda05-soomin.json"
 BUCKET_NAME = "final-project-soomin/final_project"
+storage_options = {'token':JSON_KEY_PATH}
 
 class DatasetType:
     def __init__(self, dataset_type: str):
@@ -24,18 +26,47 @@ class DatasetType:
             for f in files 
             if f.endswith('.parquet')
             ]
-        return parquet_files
+        
+        json_files = [ 
+            f.split('/')[-1].replace('.json', '') 
+            for f in files 
+            if f.endswith('.json')
+            ]
+        
+        return sorted(parquet_files + json_files)
     
     # 데이터 읽어서 DataFrame으로 반환하기
     def _read_parquet(self, filename: str):
-        path = f"gs://{BUCKET_NAME}/{self.dataset_type}/{filename}.parquet"
-        df = pd.read_parquet(
+        try:
+            path = f"gs://{BUCKET_NAME}/{self.dataset_type}/{filename}.parquet"
+            df = pd.read_parquet(
             path,
             storage_options={"token": JSON_KEY_PATH},
             engine='pyarrow'
-        )
+            )
+        except:
+            path = f"gs://{BUCKET_NAME}/{self.dataset_type}/{filename}.json"
+            df = pd.read_json(
+            path_or_buf = path,
+            storage_options={"token": JSON_KEY_PATH}
+            )
+        
         return df
     
+    # 경로를 직접 입력하여 데이터의 컬럼만 읽어오기
+    def column_list(self, filename : str, file_type: str = 'parquet'):
+        path = f"gs://{BUCKET_NAME}/{self.dataset_type}/{filename}.{file_type}"
+
+        try:
+            column_table = pq.read_table(path)
+            return (column_table.schema)
+        
+        except:
+            print('JSON 파일은 현재 지원하지 않습니다.')
+            return
+        
+
+
     # 도움말
     def help(self):
         print("""
@@ -45,8 +76,11 @@ Dataset().hackle.device_properties()
 ds = Dataset()
 ds.votes.accounts_user()
 
-ds.votes.file_list()  와 같은 방법으로 호출에 필요한 파일 이름을 확인할 수 있습니다.            
+ds.votes.file_list()  와 같은 방법으로 호출에 필요한 파일 이름을 확인할 수 있습니다. 
+ds.additional_hackle.column_list(file_name, file_type(default:parquet)) 와 같은 방법으로 컬럼명을 호출할 수 있습니다.
+ds.additional_hackle은 파일 읽어오기를 아직 지원하지 않습니다.           
 """)
+        
     ## hackle 데이터셋 읽어오기
     def device_properties(self):
         return self._read_parquet("device_properties")
@@ -129,6 +163,7 @@ class Dataset:
         self.hackle = DatasetType("hackle")
         self.votes = DatasetType("votes")
         self.vote = DatasetType("votes")
+        self.additional_hackle = DatasetType("additional_hackle")
         
             # 도움말
     def help(self):
@@ -139,6 +174,8 @@ Dataset().hackle.device_properties()
 ds = Dataset()
 ds.votes.accounts_user()
 
-ds.votes.file_list()  와 같은 방법으로 호출에 필요한 파일 이름을 확인할 수 있습니다.            
+ds.votes.file_list()  와 같은 방법으로 호출에 필요한 파일 이름을 확인할 수 있습니다.
+ds.additional_hackle.column_list(file_name, file_type(default:parquet)) 와 같은 방법으로 컬럼명을 호출할 수 있습니다.
+ds.additional_hackle은 파일 읽어오기를 아직 지원하지 않습니다.                       
 """)
-        
+    
