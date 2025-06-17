@@ -178,4 +178,5 @@ cython_debug/
 requirements.txt
 sprintda05-soomin.json
 timedata/
+dataset/
 test.ipynb
