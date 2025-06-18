@@ -166,5 +166,42 @@ class Dataread():
         rows_df['start_time'] = pd.to_datetime(rows_df['start_time'], utc=True, errors='coerce')
         rows_df['end_time'] = pd.to_datetime(rows_df['end_time'], utc=True, errors='coerce')
         return rows_df
+    
+    def culmulative_count(self, df):
+        '''
+        5~7월 'created_at'을 활용한 누적 합 dict을 반환
+        '''
+        result = {}
+        mask1 = df['created_at'] >= '2023-05-01'
+        week = pd.to_datetime('2023-05-01')
+        while True:
+            mask2 = df['created_at'] < week
+            result[week] = df.loc[(mask1) & (mask2)].shape[0]
+            if week > pd.to_datetime('2023-08-01'):
+                break
+            week = week + pd.Timedelta(days=7)
+        result_df = pd.DataFrame(list(result.items()), columns=['week', 'count'])
+        return result_df
+
+    def weekly_count(self, df):
+        '''
+        5~7월 'created_at'을 활용한 주간 계 dict을 반환
+        '''
+        week0 = pd.to_datetime('2023-05-01')
+        week1 = pd.to_datetime('2023-05-01') + pd.Timedelta(days=7)
+        result = {}
+
+        while True:
+            mask1 = df['created_at'] > week0
+            mask2 = df['created_at'] < week1
+            result[week0.strftime('%Y-%m-%d')] = df.loc[(mask1) & (mask2)].shape[0]
+            if week1 > pd.to_datetime('2023-08-01'):
+                break
+            week0 = week0 + pd.Timedelta(days=7)
+            week1 = week1 + pd.Timedelta(days=7)
+            
+        result_df = pd.DataFrame(list(result.items()), columns=['week', 'count'])
+        return result_df
+            
 
 
