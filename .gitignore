@@ -1,9 +1,7 @@
 # 환경 변수 파일 ignore
 .env
 
-# config 파일 ignore
+# directory ignore
 config/
-
-# 데이터 폴더
-hackle/
-votes/
+data/
+advanced_project/
