@@ -2,6 +2,7 @@ import pandas as pd
 import gcsfs
 import pyarrow.parquet as pq
 
+
 JSON_KEY_PATH = "./sprintda05-soomin.json"
 BUCKET_NAME = "final-project-soomin/final_project"
 storage_options = {'token':JSON_KEY_PATH}
