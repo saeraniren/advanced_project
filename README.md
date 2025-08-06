@@ -1,7 +1,3 @@
-<div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
- padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
- border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https://www.canva.com/design/DAGug-int3o/_AJWuv3lwwM0MXDt0C-10Q/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-  </iframe>
-</div>
+## 📱 4팀_고급프로젝트(SNS 서비스)
+
+[![4팀_고급프로젝트(SNS 서비스)](https://github.com/사용자명/저장소명/raw/main/images/sns_project_thumbnail.png)](https://www.canva.com/design/DAGqeBLfy84/rrDxetzv433O8-LvYdMwZA/view?utm_content=DAGqeBLfy84&utm_campaign=designshare&utm_medium=embeds&utm_source=link)
