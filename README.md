@@ -1,4 +1,8 @@
+<img src="https://honored-nigella-fc0.notion.site/image/attachment%3A3f097bea-6eea-42bd-a8af-cf094dbba763%3A4%ED%8C%80_%EA%B3%A0%EA%B8%89%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8(SNS_%EC%84%9C%EB%B9%84%EC%8A%A4).png?table=block&id=245e008e-cc3a-8057-a60f-df4980023187&spaceId=941bde33-6d61-4dec-a0a5-5165a3ad9646&width=2000&userId=&cache=v2">
+
 # 📱 SNS 서비스의 데이터를 통한 데이터 분석
+
+[PPT 페이지 바로가기](https://www.canva.com/design/DAGqeBLfy84/GMGKh1dxjBq9AOq6rzpdRQ/view?utm_content=DAGqeBLfy84&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he12ce68bee)
 
 ## 👤 프로젝트에서 진행한 역할
 
