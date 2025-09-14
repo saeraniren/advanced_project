@@ -237,7 +237,7 @@ def create_prompt(question_text, idx):
 
 출력된 내용들을 통해서 가장 많은 카테고리를 EDA를 진행하였고, 가장 많은 카테고리는 무엇인지 한 번 확인해보고자 하였다. 중복집계를 허용한 가장 인기가 많은 카테고리 상위 50개는 다음과 같다.
 
-![image.png](attachment:20a38d89-0d45-47c6-8274-a9a84efd750f:image.png)
+<img src="https://saeran-iren12.notion.site/image/attachment%3A20a38d89-0d45-47c6-8274-a9a84efd750f%3Aimage.png?table=block&id=26ae008e-cc3a-80b9-bf6f-cf66128dee9f&spaceId=941bde33-6d61-4dec-a0a5-5165a3ad9646&width=1420&userId=&cache=v2">
 
 | 인간관계 | 664 |
 | --- | --- |
